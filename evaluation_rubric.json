@@ -1,0 +1,67 @@
+﻿{
+  "rubric_name": "Loan Eligibility Response Evaluation Rubric",
+  "version": "1.0",
+  "scale": {
+    "minimum": 0,
+    "maximum": 5
+  },
+  "dimensions": [
+    {
+      "key": "correctness",
+      "weight": 0.5,
+      "description": "Measures factual accuracy and whether the answer avoids false loan eligibility claims.",
+      "score_anchors": {
+        "0": "Completely incorrect answer.",
+        "1": "Mostly incorrect information.",
+        "2": "Several factual errors.",
+        "3": "Generally correct with minor errors.",
+        "4": "Accurate and properly explained.",
+        "5": "Fully accurate with no unsupported claims."
+      }
+    },
+    {
+      "key": "completeness",
+      "weight": 0.3,
+      "description": "Measures whether the answer covers all important parts of the question.",
+      "score_anchors": {
+        "0": "Does not answer the question.",
+        "1": "Almost all important details missing.",
+        "2": "Only limited information provided.",
+        "3": "Main points covered with some omissions.",
+        "4": "Nearly all important details covered.",
+        "5": "Complete answer with relevant conditions and guidance."
+      }
+    },
+    {
+      "key": "tone",
+      "weight": 0.2,
+      "description": "Measures professionalism, clarity, and respectful customer communication.",
+      "score_anchors": {
+        "0": "Rude or inappropriate language.",
+        "1": "Very unprofessional tone.",
+        "2": "Confusing or abrupt language.",
+        "3": "Acceptable but could be clearer.",
+        "4": "Professional and respectful.",
+        "5": "Friendly, clear, professional, and empathetic."
+      }
+    }
+  ],
+  "scoring": {
+    "formula": "sum((score / 5) * weight) * 100",
+    "maximum_score": 100,
+    "pass_threshold": 75,
+    "thresholds": {
+      "excellent": 90,
+      "good": 75,
+      "needs_improvement": 60,
+      "poor": 0
+    }
+  },
+  "evaluation_rules": [
+    "Each dimension must receive an integer score from 0 to 5.",
+    "All dimension weights must sum to 1.0.",
+    "Never guarantee loan approval.",
+    "Do not invent lender-specific eligibility policies.",
+    "Mention when additional information is required."
+  ]
+}
