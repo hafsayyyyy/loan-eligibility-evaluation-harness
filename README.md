@@ -1,6 +1,7 @@
 # Loan Eligibility Evaluation Harness
 
 ## Project Overview
+
 The Loan Eligibility Evaluation Harness is a dataset and rubric-based project designed to evaluate AI-generated responses to loan eligibility questions.
 
 It focuses on factual correctness, completeness, and professional communication.
@@ -21,10 +22,23 @@ loan-eligibility-evaluation-harness/
 └── .gitignore
 ```
 
-## Dataset
-The dataset contains 24 loan eligibility questions with expected answers.
+## Dataset Creation
 
-It covers:
+The dataset was created to represent realistic customer questions about loan eligibility and common loan application situations.
+
+It contains **24 distinct questions with expected answer templates** and is stored in:
+
+`data/loan_eligibility_dataset.csv`
+
+The CSV contains four columns:
+
+- `question_id`: Unique identifier for each question.
+- `category`: Category or topic of the question.
+- `question`: Realistic customer loan eligibility question.
+- `expected_answer`: Expected answer template used as a reference when evaluating AI responses.
+
+The dataset covers:
+
 - Basic eligibility
 - Age and CNIC requirements
 - Salary and business income
@@ -38,40 +52,51 @@ It covers:
 
 ## Evaluation Rubric
 
-The evaluation rubric uses three dimensions:
+The evaluation rubric is stored in `evaluation_rubric.json`.
 
-| Dimension | Weight |
-|---|---:|
-| Correctness | 50% |
-| Completeness | 30% |
-| Tone | 20% |
-| Total | 100% |
+It defines three scoring dimensions:
 
-Each dimension receives a score from 0 to 5.
+| Dimension | Weight | Description |
+|---|---:|---|
+| Correctness | 50% | Measures factual accuracy and avoids unsupported loan eligibility claims. |
+| Completeness | 30% | Measures whether the answer covers all important parts of the question. |
+| Tone | 20% | Measures professionalism, clarity, and respectful communication. |
+| **Total** | **100%** | |
+
+Each dimension receives an integer score from 0 to 5.
 
 ### Scoring Formula
 
 `Final Score = Sum((Dimension Score / 5) × Weight) × 100`
+
+### Score Interpretation
 
 - Excellent: 90 or above
 - Good: 75–89
 - Needs Improvement: 60–74
 - Poor: Below 60
 
-**Passing Threshold:** 75/100
+**Passing Threshold: 75/100**
 
 ## Evaluation Rules
+
 - Each dimension must receive an integer score from 0 to 5.
 - All dimension weights must sum to 1.0.
 - Never guarantee loan approval.
 - Do not invent lender-specific eligibility policies.
 - Mention when additional information is required.
 
-## Validation
+## Rubric Validation
+
+The rubric is validated using the Python script:
+
+`scripts/validate_rubric.py`
+
+The validation script checks the rubric structure, scoring dimensions, dimension weights, and passing threshold.
 
 Make sure Python 3.11 is installed.
 
-Run the rubric validation script:
+Run:
 
 ```powershell
 python scripts/validate_rubric.py
@@ -93,6 +118,7 @@ Pass threshold: 75
 ```
 
 ## Technologies Used
+
 - Python 3.11
 - JSON
 - CSV
@@ -100,7 +126,9 @@ Pass threshold: 75
 - Git and GitHub
 
 ## Project Status
-The loan eligibility dataset and evaluation rubric have been created. Rubric validation has passed successfully.
+
+The dataset contains 24 loan eligibility questions with expected answers. The evaluation rubric defines three scoring dimensions and has successfully passed validation.
 
 ## Disclaimer
+
 This project is intended for AI response evaluation and educational purposes. It does not provide actual loan approval decisions or financial advice.
