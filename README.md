@@ -30,12 +30,31 @@ It contains **24 distinct questions with expected answer templates** and is stor
 
 `data/loan_eligibility_dataset.csv`
 
+### How the Dataset Was Created
+
+The dataset was manually developed using common loan eligibility scenarios and frequently asked questions that potential loan applicants may have.
+
+The following steps were followed to create it:
+
+1. **Topic Identification:** Identified common loan eligibility topics such as age, CNIC, income, employment, credit history, guarantors, documents, and repayment.
+2. **Question Generation:** Created 24 distinct questions based on realistic situations and concerns of loan applicants.
+3. **Categorization:** Organized each question into a relevant category to make the dataset structured and easy to use.
+4. **Expected Answer Preparation:** Wrote an expected answer template for each question using general loan eligibility guidance.
+5. **Unique Identification:** Assigned a unique question ID to every record, from LEQ001 to LEQ024.
+6. **CSV Organization:** Stored all questions, categories, IDs, and expected answers in a CSV file for consistent evaluation of AI-generated responses.
+
+The dataset contains general eligibility guidance and does not assume the specific policies of any particular lender. Expected answers are reference templates and may require adjustment according to actual lender requirements.
+
+### Dataset Columns
+
 The CSV contains four columns:
 
 - `question_id`: Unique identifier for each question.
 - `category`: Category or topic of the question.
 - `question`: Realistic customer loan eligibility question.
 - `expected_answer`: Expected answer template used as a reference when evaluating AI responses.
+
+### Dataset Topics
 
 The dataset covers:
 
