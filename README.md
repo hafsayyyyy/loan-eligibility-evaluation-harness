@@ -151,3 +151,38 @@ The dataset contains 24 loan eligibility questions with expected answers. The ev
 ## Disclaimer
 
 This project is intended for AI response evaluation and educational purposes. It does not provide actual loan approval decisions or financial advice.
+
+## Scoring Engine
+
+The scoring engine is implemented in `scoring.py`.
+
+It evaluates AI-generated responses using the evaluation rubric.
+
+### Main Features
+
+- Calculates scores for each evaluation dimension.
+- Calculates the weighted overall score.
+- Handles missing scoring dimensions.
+- Ignores extra response keys.
+- Handles malformed JSON responses.
+- Checks whether the response meets the passing threshold.
+
+### Usage Example
+
+```python
+import json
+from scoring import score_response
+
+with open("evaluation_rubric.json", encoding="utf-8") as file:
+    rubric = json.load(file)
+
+response = {
+    "scores": {
+        "correctness": 4,
+        "completeness": 5,
+        "tone": 4
+    }
+}
+
+result = score_response(response, rubric)
+print(result)
