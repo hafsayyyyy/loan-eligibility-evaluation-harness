@@ -185,4 +185,3 @@ response = {
 }
 
 result = score_response(response, rubric)
-print(result)
