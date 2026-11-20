@@ -236,3 +236,6 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 >>>>>>> a0e2c9410bdcc759b8c773f52dc81cd1b8f45921
+
+dashboard/app_backup.py
+dashboard/__pycache__/
