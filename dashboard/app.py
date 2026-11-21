@@ -6,10 +6,10 @@ import plotly.express as px
 import requests
 import streamlit as st
 try:
-    from weasyprint import HTML
+    from weasyprint import HTML as WeasyprintHTML
     WEASYPRINT_AVAILABLE = True
 except Exception:
-    HTML = None
+    WeasyprintHTML = None
     WEASYPRINT_AVAILABLE = False
 
 
@@ -378,7 +378,7 @@ if evaluations:
 
     pdf_buffer = BytesIO()
 
-    HTML(
+    WeasyprintHTML(
         string=html_report
     ).write_pdf(
         pdf_buffer
