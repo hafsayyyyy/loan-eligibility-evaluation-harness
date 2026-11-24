@@ -1,0 +1,10 @@
+
+.venv
+.venv_broken
+__pycache__
+.pytest_cache
+.git
+.gitignore
+.env
+*.db
+*.pyc
