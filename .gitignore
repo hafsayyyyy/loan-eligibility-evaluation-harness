@@ -239,3 +239,5 @@ __marimo__/
 
 dashboard/app_backup.py
 dashboard/__pycache__/
+
+.venv_broken/
