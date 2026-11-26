@@ -40,6 +40,13 @@ def home():
     }
 
 
+@app.get("/health")
+def health():
+    return {
+        "status": "healthy"
+    }
+
+
 def create_demo_response(question: str):
     """
     Creates a local demo evaluation when OpenAI is not available.
